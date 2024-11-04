@@ -44,6 +44,8 @@
 </div>
 </template>
 <script>
+import router from "@/router"
+
 export default {
   data() {
     return {
@@ -59,6 +61,7 @@ export default {
       this.axios.post('/register', this.form).then(response => {
         window.localStorage.setItem('access_token', response.access_token)
         window.localStorage.setItem('user', JSON.stringify(response.user) ?? '{}')
+        router.push('/')
       })
     }
   },

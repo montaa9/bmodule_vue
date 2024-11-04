@@ -7,5 +7,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 axios.defaults.baseURL = 'http://localhost:8000/api/v1'
+axios.defaults.headers.authorization = 'Bearer ' + localStorage.getItem('access_token');
+
 
 createApp(App).use(router).use(VueAxios, axios).mount('#app')

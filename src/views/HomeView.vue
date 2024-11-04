@@ -38,6 +38,8 @@
 </div>
 </template>
 <script>
+import router from "@/router"
+
 export default {
   data() {
     return {
@@ -46,12 +48,14 @@ export default {
         password: null,
       }
     }
+  
   },
   methods: {
     login() {
       this.axios.post('/login', this.form).then(response => {
-        window.localStorage.setItem('access_token', response.access_token)
-        window.localStorage.setItem('user', JSON.stringify(response.user) ?? '{}')
+        window.localStorage.setItem('access_token', response.data.access_token)
+        window.localStorage.setItem('user', JSON.stringify(response.data.user) ?? '{}')
+        router.push('/articles')
       })
     }
   },
