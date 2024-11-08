@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Register from '@/views/Register.vue'
 import Articles from '@/views/Articles.vue'
+import AddArticle from '@/views/AddArticle.vue'
+import EditArticles from '@/views/EditArticles.vue'
 
 const routes = [
   {
@@ -19,7 +21,16 @@ const routes = [
     name: 'articles',
     component: Articles
   },
-  
+  {
+    path: '/articles/create',
+    name: 'articles-create',
+    component: AddArticle
+  },
+  {
+    path: '/articles/:id',
+    name: 'articles-update',
+    component: EditArticles,
+  },
   // {
   //   path: '/about',
   //   name: 'about',
